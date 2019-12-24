@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {LineChart, Grid} from 'react-native-svg-charts';
 
-export default class Graph extends Component {
+export default class extends Component {
   render() {
     const data = [
       50,
