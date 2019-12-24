@@ -6,7 +6,14 @@ export default class Home extends Component {
     const {navigate} = this.props.navigation;
     return (
       <>
-        <Button title="Graph" onPress={() => navigate('Graph')} />
+        <Button
+          title="React Native Svg Charts"
+          onPress={() => navigate('ReactNativeSvgCharts')}
+        />
+        <Button
+          title="React Native Chart Kit"
+          onPress={() => navigate('ReactNativeChartKit')}
+        />
       </>
     );
   }
