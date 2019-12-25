@@ -7,6 +7,7 @@ import Home from './src/views/Home';
 import ReactNativeSvgCharts from './src/views/GraphScreens/ReactNativeSvgCharts';
 import ReactNativeChartKit from './src/views/GraphScreens/ReactNativeChartKit';
 import GoogleCharts from './src/views/GraphScreens/GoogleCharts';
+import ChartJs from './src/views/GraphScreens/ChartJs';
 
 const MainNavigator = createStackNavigator(
   {
@@ -14,6 +15,7 @@ const MainNavigator = createStackNavigator(
     ReactNativeSvgCharts: {screen: ReactNativeSvgCharts},
     ReactNativeChartKit: {screen: ReactNativeChartKit},
     GoogleCharts: {screen: GoogleCharts},
+    ChartJs: {screen: ChartJs},
   },
   {
     initialRouteName: 'Home',
