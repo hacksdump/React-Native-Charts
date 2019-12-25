@@ -4,18 +4,6 @@ import {WebView} from 'react-native-webview';
 import html from './html.js';
 
 export default class extends Component {
-  componentDidMount() {
-    let counter = 0;
-    this.interval = setInterval(() => {
-      this.webview.postMessage(`from react ${counter++}`);
-    }, 1000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-  onMessage(event) {
-    console.log(event.nativeEvent.data);
-  }
   render() {
     return (
       <WebView
