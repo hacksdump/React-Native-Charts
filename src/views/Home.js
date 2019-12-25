@@ -9,6 +9,7 @@ export default class Home extends Component {
         <GraphButton title="React Native Svg Charts" navigate={navigate} />
         <GraphButton title="React Native Chart Kit" navigate={navigate} />
         <GraphButton title="Google Charts" navigate={navigate} />
+        <GraphButton title="Chart Js" navigate={navigate} />
       </>
     );
   }
