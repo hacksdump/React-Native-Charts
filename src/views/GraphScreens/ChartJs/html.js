@@ -11,7 +11,7 @@ const html = `<html>
         }
     </style>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <script src="Chart.bundle.min.js"></script>
+    <script src="Chart.min.js"></script>
   </head>
   <body>
     <canvas id="myChart"></canvas>

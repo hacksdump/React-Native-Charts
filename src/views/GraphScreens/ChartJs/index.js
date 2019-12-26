@@ -4,10 +4,7 @@ import {WebView} from 'react-native-webview';
 
 import html from './html.js';
 
-const baseUrl =
-  Platform.OS === 'ios'
-    ? '../../../../node_modules/chart.js/dist/'
-    : 'file:///android_asset/';
+const baseUrl = Platform.OS === 'ios' ? './assets/' : 'file:///android_asset/';
 
 export default class extends Component {
   render() {
