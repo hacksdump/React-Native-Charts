@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
+import {Platform} from 'react-native';
 import {WebView} from 'react-native-webview';
 
 import html from './html.js';
+
+const baseUrl =
+  Platform.OS === 'ios'
+    ? '../../../../node_modules/chart.js/dist/'
+    : 'file:///android_asset/';
 
 export default class extends Component {
   render() {
@@ -10,18 +16,11 @@ export default class extends Component {
         ref={c => {
           this.webview = c;
         }}
-        injectedJavaScript={''}
         javaScriptEnabled={true}
-        source={{html: html, baseUrl: './'}}
-        allowUniversalAccessFromFileURLs={true}
-        allowFileAccessFromFileURLs={true}
-        allowFileAccess={true}
+        source={{html: html, baseUrl: baseUrl}}
         allowingReadAccessToURL={true}
-        mixedContentMode="always"
         domStorageEnabled={true}
         originWhitelist={['*']}
-        onMessage={this.onMessage}
-        useWebKit={true}
         scalesPageToFit={true}
         scrollEnable={false}
       />

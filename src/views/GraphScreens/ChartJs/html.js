@@ -11,7 +11,7 @@ const html = `<html>
         }
     </style>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="Chart.bundle.min.js"></script>
   </head>
   <body>
     <canvas id="myChart"></canvas>
@@ -23,7 +23,7 @@ const html = `<html>
 
           // The data for our dataset
           data: {
-              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
               datasets: [{
                   label: 'My First dataset',
                   backgroundColor: 'rgba(255, 99, 132, 0.7)',
@@ -33,7 +33,20 @@ const html = `<html>
           },
 
           // Configuration options go here
-          options: {}
+          options: {
+            responsive: true,
+            tooltips: {
+              mode: 'index',
+              intersect: false,
+            },
+            legend: {
+					
+            onClick: function(event, legendItem) {
+              event.preventDefault();
+              return;
+            }
+				},
+				  }
       });
     </script>
   </body>
