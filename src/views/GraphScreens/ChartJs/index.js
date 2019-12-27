@@ -7,6 +7,21 @@ import html from './html.js';
 const baseUrl = Platform.OS === 'ios' ? './assets/' : 'file:///android_asset/';
 
 export default class extends Component {
+  sendPoints() {
+    if (this.webview) {
+      this.webview.postMessage(
+        JSON.stringify([...Array(16)].map(e => ~~(Math.random() * 16))),
+      );
+    }
+  }
+  componentDidMount() {
+    this.intervalIdentifier = setInterval(() => {
+      this.sendPoints();
+    }, 2000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.intervalIdentifier);
+  }
   render() {
     return (
       <WebView

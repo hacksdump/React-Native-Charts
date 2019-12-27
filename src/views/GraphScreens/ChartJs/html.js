@@ -23,17 +23,22 @@ const html = `<html>
 
           // The data for our dataset
           data: {
-              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+              labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
               datasets: [{
                   label: 'My First dataset',
                   backgroundColor: 'rgba(255, 99, 132, 0.7)',
                   borderColor: 'rgb(255, 99, 132)',
-                  data: [0, 10, 5, 2, 20, 30, 45]
+                  data: [10, 10, 5, 20, 20, 30, 45, 23, 12, 34]
               }]
           },
 
           // Configuration options go here
           options: {
+            elements: {
+              line: {
+                tension: 0
+              }
+            },
             responsive: true,
             tooltips: {
               mode: 'index',
@@ -44,10 +49,18 @@ const html = `<html>
             onClick: function(event, legendItem) {
               event.preventDefault();
               return;
-            }
+            },
+
 				},
 				  }
       });
+
+      document.addEventListener("message", function(data) {
+        const points = JSON.parse(data.data);
+        chart.data.datasets[0].data = points;        
+        chart.update();
+      });
+      
     </script>
   </body>
 </html>`;
