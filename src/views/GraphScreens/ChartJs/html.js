@@ -28,7 +28,7 @@ const html = `<html>
                   label: 'My First dataset',
                   backgroundColor: 'rgba(255, 99, 132, 0.7)',
                   borderColor: 'rgb(255, 99, 132)',
-                  data: [10, 10, 5, 20, 20, 30, 45, 23, 12, 34]
+                  data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
               }]
           },
 

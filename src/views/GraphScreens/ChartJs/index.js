@@ -17,7 +17,7 @@ export default class extends Component {
   componentDidMount() {
     this.intervalIdentifier = setInterval(() => {
       this.sendPoints();
-    }, 2000);
+    }, 5000);
   }
   componentWillUnmount() {
     clearInterval(this.intervalIdentifier);
