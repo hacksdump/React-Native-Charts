@@ -10,7 +10,7 @@ export default class extends Component {
   sendPoints() {
     if (this.webview) {
       this.webview.postMessage(
-        JSON.stringify([...Array(16)].map(e => ~~(Math.random() * 16))),
+        JSON.stringify([...Array(30)].map(e => ~~(Math.random() * 30))),
       );
     }
   }
