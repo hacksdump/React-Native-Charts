@@ -1,41 +1,18 @@
-import React, {Component} from 'react';
-import {Platform} from 'react-native';
-import {WebView} from 'react-native-webview';
+import React, {useState, useEffect} from 'react';
+import {LineChart} from 'react-native-webview-charts';
 
-import html from './html.js';
+export default function() {
+  const [data, setData] = useState([1, 2, 3, 6, 2, 3, 45, 6, 7]);
 
-const baseUrl = Platform.OS === 'ios' ? './assets/' : 'file:///android_asset/';
+  useEffect(() => {
+    const intervalIdentifier = setInterval(() => {
+      const count = ~~(Math.random() * 30);
+      setData([...Array(count)].map(e => ~~(Math.random() * count)));
+    }, 2000);
+    return () => {
+      clearInterval(intervalIdentifier);
+    };
+  });
 
-export default class extends Component {
-  sendPoints() {
-    if (this.webview) {
-      this.webview.postMessage(
-        JSON.stringify([...Array(30)].map(e => ~~(Math.random() * 30))),
-      );
-    }
-  }
-  componentDidMount() {
-    this.intervalIdentifier = setInterval(() => {
-      this.sendPoints();
-    }, 5000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.intervalIdentifier);
-  }
-  render() {
-    return (
-      <WebView
-        ref={c => {
-          this.webview = c;
-        }}
-        javaScriptEnabled={true}
-        source={{html: html, baseUrl: baseUrl}}
-        allowingReadAccessToURL={true}
-        domStorageEnabled={true}
-        originWhitelist={['*']}
-        scalesPageToFit={true}
-        scrollEnable={false}
-      />
-    );
-  }
+  return <LineChart data={data} />;
 }
