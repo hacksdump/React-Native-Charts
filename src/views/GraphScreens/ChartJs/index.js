@@ -1,30 +1,18 @@
-import React, {Component} from 'react';
-import {WebView} from 'react-native-webview';
+import React, {useState, useEffect} from 'react';
+import {LineChart} from 'react-native-webview-charts';
 
-import html from './html.js';
+export default function() {
+  const [data, setData] = useState([1, 2, 3, 6, 2, 3, 45, 6, 7]);
 
-export default class extends Component {
-  render() {
-    return (
-      <WebView
-        ref={c => {
-          this.webview = c;
-        }}
-        injectedJavaScript={''}
-        javaScriptEnabled={true}
-        source={{html: html, baseUrl: './'}}
-        allowUniversalAccessFromFileURLs={true}
-        allowFileAccessFromFileURLs={true}
-        allowFileAccess={true}
-        allowingReadAccessToURL={true}
-        mixedContentMode="always"
-        domStorageEnabled={true}
-        originWhitelist={['*']}
-        onMessage={this.onMessage}
-        useWebKit={true}
-        scalesPageToFit={true}
-        scrollEnable={false}
-      />
-    );
-  }
+  useEffect(() => {
+    const intervalIdentifier = setInterval(() => {
+      const count = ~~(Math.random() * 30);
+      setData([...Array(count)].map(e => ~~(Math.random() * count)));
+    }, 2000);
+    return () => {
+      clearInterval(intervalIdentifier);
+    };
+  });
+
+  return <LineChart data={data} />;
 }

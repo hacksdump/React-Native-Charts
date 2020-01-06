@@ -10,13 +10,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "chart.js": "^2.9.3",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-chart-kit": "^4.3.0",
     "react-native-gesture-handler": "^1.5.2",
     "react-native-svg": "^9.13.6",
     "react-native-svg-charts": "^5.3.0",
-    "react-native-webview": "^8.0.1",
+    "react-native-webview": "^8.0.2",
+    "react-native-webview-charts": "git+ssh://git@github.com:hacksdump/react-native-webview-charts.git",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3"
   },
